@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="./iconfont.css">
+	<script src="./jquery3.min.js"></script>
+	<style>
+.content{
+	width: 830px;
+	height: 400px;
+	position: relative;
+	margin: 0 auto;
+}
+img{
+	position: absolute;
+	opacity: 1;
+}
+ul{
+	width: 200px;
+	height:30px;
+	/*border: 1px solid red;*/
+	position:absolute;
+	top:90%;
+	left: 50%;
+    transform: translateX(-50%);
+	z-index: 100;
+}
+ul li{
+	width: 15px;
+	height:15px;
+	list-style: none;
+	border-radius: 50%;
+	background: orange;
+	display:inline-block;
+	margin-left: 20px;
+}
+.next{
+	width:50px;
+	height:50px;
+	line-height: 50px;
+	font-size: 38px;
+	color: white;
+	cursor: pointer;
+	text-align: center;
+	font-weight: 600;
+   /* border: 1px solid red;*/
+    position:absolute;
+    top:50%;
+   right:0;
+
+}
+.prev{
+	width:50px;
+	height:50px;
+	line-height: 50px;
+	color: white;
+	cursor: pointer;
+	font-size: 38px;
+	text-align: center;
+	font-weight: 600;
+   /* border: 1px solid red;*/
+    position:absolute;
+    left:0;
+    top:50%;
+}
+</style>
+</head>
+<body>l
+   <div class="content">
+   <img src="1.jpg" alt="" >
+   <img src="2.jpg" alt="" style="display: none">
+   <img src="3.jpg" alt="" style="display: none">
+   <img src="4.jpg" alt="" style="display: none">
+   <ul>
+   	<li></li>
+   	<li></li>
+   	<li></li>
+   	<li></li>
+   </ul>
+   <div class="next">
+   >
+   </div>
+   <div class="prev">
+   <
+    </div>
+</body>
+<script type="javascript"></script>
+<script>
+     var index = 0;
+     // 让第一张图显示
+     $("li").eq(0).css("background","orange")
+ function moving(){
+// 	 // 判断index的值，如果大于3则自增
+ 	index = index >=3 ? 0 :++index;
+// 	// 让图片淡入
+ 	$("img").fadeOut(1500) 
+// 	// 让图片淡出 
+ 	$("img").eq(index).fadeIn(1500);
+// 	// 分页器
+ 	$("li").css("background","white")
+ 	$("li").eq(index).css("background","orange")
+ }  
+ t = setInterval(moving,1500)
+ // 鼠标移动到小圆点上时停留在当前对应的图片上
+ $("li").hover(function(){
+ 	index = $(this).index()
+ 	$("img").fadeOut(1500) 
+// 	// 让图片淡出 
+ 	$("img").eq(index).fadeIn(1500);
+// 	// 分页器
+ 	$("li").css("background","white")
+ 	$("li").eq(index).css("background","orange")
+     clearInterval(t)
+ },function(){
+ 	t = setInterval(moving,1500)
+ })
+  // 翻页效果
+    $(".next").click(function(){
+    	index++;
+    	moving(index)
+    })
+    
+    $(".prev").click(function(){
+    	index--;
+    	moving()
+    })
+</script>
+</html>

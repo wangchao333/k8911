@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	
+	#hezi1{
+		width: 700px;
+		height:500px;
+		/*border: 1px solid black;*/
+		position:absolute;
+		top:0px;
+		left:193px;
+
+	}
+	 #number{
+		width:500px;
+		height:40px;
+		position: relative;
+		top:200px;
+		left:50px;
+		font-size:20px;
+		font-weight: 600;
+	}
+  #submits{
+ 	width: 100px;
+ 	height:50px;
+ 	position: absolute;
+ 	left:562px;
+ 	top:197px;
+
+ }
+  #pic{
+ 	width: 150px;
+ 	height: 150px;
+ 	/*border: 1px solid black;*/
+ 	position: relative;
+ 	top:384px;
+ 	left:398px;
+ }
+ #text{
+ 	width: 100px;
+	height: 50px;
+	/*border: 1px solid grey;*/
+	text-align: center;
+	position:relative;
+	top:159px;
+	left:418px;
+	font-size: 20px;
+	font-weight: 700;
+ }
+</style>
+</head>
+<body>
+	<div id="hezi1">
+	<input type="number" placeholder="请输入出生年份(只能查询1984年及以后)"  id="number" value="">
+<input type="submit" value="查询" id="submits" onclick="gm()" >
+</div>
+   <div id="pic">
+   </div>
+   <div id="text">
+   </div>
+</body>
+<script>
+var submits = document.getElementById("submits");
+var number = document.getElementById("number");
+var text = document.getElementById("text");
+var pic = document.getElementById("pic");
+ function gm(){
+ 	var num = parseInt(number.value);
+  if((num-1984)%12==0){
+ 	text.innerHTML = "鼠";
+ 	pic.style.background="url(1.jpg)no-repeat center";
+ }else if((num-1984)%12==1) {
+ 	text.innerHTML = "牛";
+ 	pic.style.background="url(2.jpg)no-repeat center";
+ }else if((num-1984)%12==2) {
+ 	text.innerHTML = "虎";
+ 	pic.style.background="url(3.jpg)no-repeat center";
+ }else if((num-1984)%12==3) {
+ 	text.innerHTML = "兔";
+ 	pic.style.background="url(4.jpg)no-repeat center";
+ }else if((num-1984)%12==4) {
+ 	text.innerHTML = "龙";
+ 	pic.style.background="url(5.jpg)no-repeat center";
+ }else if((num-1984)%12==5) {
+ 	text.innerHTML = "蛇";
+ 	pic.style.background="url(6.png)no-repeat center";
+ }else if((num-1984)%12==6) {
+ 	text.innerHTML = "马";
+ 	pic.style.background="url(7.png)no-repeat center";
+ }else if((num-1984)%12==7) {
+ 	text.innerHTML = "羊";
+ 	pic.style.background="url(8.png)no-repeat center";
+ }else if((num-1984)%12==8) {
+ 	text.innerHTML = "猴";
+ 	pic.style.background="url(9.png)no-repeat center";
+ }else if((num-1984)%12==9) {
+ 	text.innerHTML = "鸡";
+ 	pic.style.background="url(10.png)no-repeat center";
+ }else if((num-1984)%12==10) {
+ 	text.innerHTML = "狗";
+ 	pic.style.background="url(11.png)no-repeat center";
+ }else if((num-1984)%12==11) {
+ 	text.innerHTML = "猪";
+ 	pic.style.background="url(12.png)no-repeat center";
+ }else{
+    alert("你输入的年份有误");
+ }
+
+ }
+ 
+ </script>
+</html>

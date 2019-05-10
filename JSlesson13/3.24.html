@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>百度注册</title>
+	<link rel="stylesheet" href="./3.24.css">
+</head>
+<body>
+<header>
+<div class="img">
+</div>
+<span>|</span>
+<div class="font">
+注册百度账号
+</div>
+<div class="submit">
+我已注册, 现在就 <button class="btn">登录</button>
+</div>
+</header>
+<div class="tab">
+</div>
+<div class="ipt">
+<ul class="box1">
+  <li>
+  用户名&nbsp;<input type="text" placeholder="请输入用户名" style="width:349px;height:32px;" name="user"><span id="info">设置后不能更改,长度为14个英文或4个汉字</span><div class="del">×</div>
+</li>
+	<li>
+		手机号&nbsp;<input type="text"  placeholder="可用于登录和找回密码" style="width:349px; height:32px;" name="num1"><span id="info2">请输入中国大陆手机号，其他用户不可见</span><div class="del1">×</div>
+  </li>
+	<li>
+	密码&nbsp;&nbsp;&nbsp;&nbsp;<input type="password"  placeholder="请设置登录密码" style="width:349px;height:32px;" name="pwd"><span id="info3">长度为8-14个 字符，支持数字，字母，标点符号</span><div class="del2">×</div>
+		</li>
+          <li>
+			验证码&nbsp;<input type="text" placeholder="请输入验证码" style="width:177px;height:32px;" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button style="width:150px;height:36px;"> 获取短信验证码</button>
+      </li>
+	<li class="text">
+		<input type="checkbox">阅读并接受<a href="#">《百度用户协议》</a>及<a href="#">《百度隐私权保护声明》</a>
+	</li>
+  <li class="bottom">
+  		<input type="submit" value="注册" id="sub">
+  	</li>
+  </ul>
+</body>
+<script>
+ var user = document.getElementsByName("user")[0];
+var num1 = document.getElementsByName("num1")[0];
+ var pwd = document.getElementsByName("pwd")[0];
+  var info = document.getElementById("info");
+ var info2 = document.getElementById("info2");
+  var info3 = document.getElementById("info3");
+  var del1 = document.getElementsByClassName("del1")[0];
+var del2 = document.getElementsByClassName("del2")[0];
+var del = document.getElementsByClassName("del")[0]; 
+var sub = document.getElementById("sub");
+
+ // 1. 当光标聚集到文本框里面的时候，就让info里的文字显示 和删除标记
+user. onfocus = function(){
+   info.innerHTML ="设置后不能更改,长度为14个英文或4个汉字";
+   info.style.color="gray";
+    info.style.display="block";
+    del.style.display="block";
+ } 
+ // 2.当光标失去焦点时就让正则判断生效
+user. onblur = function(){
+  var reg = /^[a-z0-9_-]{3,10}$/;
+   del.style.display="none";
+   var val = this.value;
+    if(val.length < 1){
+   info.innerHTML="用户名不能为空";
+   info.style.color="gray";
+    return false;
+   }   
+   // 4.如果长度超出了10个英文
+  else if(val.length > 10){
+ 
+    info.innerHTML ="长度超出了10个英文";
+    info.style.color="red";
+    return false;
+  }
+  else if(val.length <= 10 && val.length >= 3){
+    info.innerHTML ="通过";
+    info.style.color="green";
+    return true;
+  }
+} 
+   // 5. 当光标聚集到手机号码文本框时，info2里面文字条件显示 
+   num1.onfocus = function(){
+    info2.style.display ="block";
+    del1.style.display = "block";
+    info2.innerHTML="请输入中国大陆手机号，其他用户不可见";
+     info2.style.color="gray";
+   }
+   num1.onblur = function(){
+    // 获取到输入的值
+    var val2 = this.value;
+   var reg = /1\d{11}/;
+   del1.style.display="none";
+  
+    if(val2.length < 1){
+   info2.innerHTML="手机号码不能为空";
+     return true;
+   } 
+     // 长度不能超出11位
+   else if(val2.length > 11) {
+       info2.innerHTML="手机号码不能超出11位";
+       info2.style.color="red";
+       return false;
+   } else if(val2.length = 11){
+    info2.innerHTML="正确";
+    info2.style.color="green";
+      return true;
+   }
+   else if(val2.length < 11){
+    info2.innerHTML="手机号码位数不能小于11位";
+    info2.style.color="red";
+      return true;
+   }
+  else if(!reg.test(val2)){
+    info2.innerHTML="手机号仅支持纯数字类型不能支持中文";
+    return true;
+  }
+   }
+    // 6.当光标聚集到密码框的时候，让info里的文字显示
+    pwd.onfocus = function(){
+    info3.style.display="block";
+    del2.style.display="block";
+    info3.style.color="gray";
+    info3.innerHTML="长度为8-14个 字符,支持数字,字母,标点符号";
+    }
+    pwd.onblur = function(){
+      var val3 = this.value;
+      var reg = /^[a-z0-9_-]{8,14}$/;
+      del2.style.display="none";
+     
+      if(val3.length < 1){
+      info3.innerHTML="密码不能为空";
+          return false;
+    }
+  else if(val3.length > 14){
+     info3.innerHTML="长度超出最大限制字符";
+      info3.style.color="red";
+    }
+    else if(val3.length = 14 && val3.length >= 8){
+      info3.innerHTML="正确";
+      info3.style.color="green";
+      return true;
+      }
+  }
+    
+ 
+  
+</script>
+</html>

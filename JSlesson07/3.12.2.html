@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	table{
+      width: 600px;
+      height: 30px;
+      position: relative;
+      left:142px;
+      text-align: center;
+	}
+	.btn1{
+		width: 70px;
+		height:30px;
+		position: relative;
+		top:50px;
+		left:40px;
+	}
+	button{
+		width: 70px;
+		height:30px;
+		position: relative;
+		top:50px;
+		left:65px;
+	}
+	td{
+		width: 30px;
+		height: 30px;
+	}
+         
+	</style>
+</head>
+<body>
+ <table border="1" cellspacing="0" id="table">
+<tr>
+	<td><span>第一行第一列</span></td>
+	<td><span>第一行第二列</span></td>
+	<td><span>第一行第三列</span></td>
+	<td><span>第一行第四列</span></td>
+</tr>
+
+ </table>
+<button id="btn1">加一行</button>
+<button id="btn2">删一行</button>
+
+</body>
+<script>
+   var table = document.getElementById("table");
+   var btn1 = document.getElementById("btn1");
+    var btn2 = document.getElementById("btn2");
+   var span = document.getElementsByTagName("span");
+   var tr1 = document.getElementsByTagName("tr");
+        btn1.onclick =function(){
+	   var tr = table.insertRow();
+	   
+ 	  for(var i = 0;i<4;i++){
+ 	  	var td = tr.insertCell();
+ 	  	td.innerHTML = i + 1; 
+ 	  }
+ 	  ic();
+ }
+ function delete1(){
+ 	
+  	var i = tr1.length - 1;
+  	 // table.removeChild(tr1[i]);
+ }
+  btn2.onclick = function(){
+  	var i = tr1.length - 1;
+	 table.deleteRow(i);
+	
+}
+ function ic(){
+ 	for(var j=0;j<tr1.length;j++){
+ 		if(j%2==0){
+ 			tr1[j].style.background = "blue";
+ 		}
+ 	}
+ }
+</script>
+</html>

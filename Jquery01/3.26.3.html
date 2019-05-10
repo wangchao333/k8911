@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>三级联动</title>
+<script src="jquery3.min.js" type="text/javascript"></script>
+</head>
+<body>
+	<select name="pro" id="pro">
+	<option value="0">
+	请选择省份
+	</option>
+	</select>
+	<select name="city" id="city">
+	<option value="0">
+	请选择城市
+	</option>
+	</select>
+	<select name="country" id="country">
+	<option value="0">
+	请选择区县
+	</option>
+	</select>
+</body>
+<script type="text/javascript">
+
+var provice = [
+		   {pid:1,pname:"湖北"},
+		   {pid:2,pname:"河北"},
+		   {pid:3,pname:"河南"}
+		]
+
+		// 市区信息
+		  var cities = [
+		     {cid:1,cname:"武汉",pid:1},
+		     {cid:2,cname:"郑州",pid:3},
+		     {cid:3,cname:"石家庄",pid:2},
+		      {cid:4,cname:"鄂州",pid:1},
+		       {cid:5,cname:"荆州",pid:1},
+		       {cid:6,cname:"洛阳",pid:3},
+		        {cid:7,cname:"开封",pid:3},
+		         {cid:8,cname:"秦皇岛",pid:2},
+		         {cid:9,cname:"邢台",pid:2},     
+		  ];
+
+		// 区县信息 
+		var country = [
+		    {id:1,cname:"洪山区",cid:1},
+		    {id:2,cname:"武昌区",cid:1},
+		    {id:3,cname:"江汉区",cid:1},
+		    {id:4,cname:"中原区",cid:2},
+		    {id:5,cname:"二七区",cid:2},
+		    {id:6,cname:"金水区",cid:2},
+		     {id:1,cname:"新华区",cid:3},
+		    {id:2,cname:"桥西区",cid:3},
+		    {id:3,cname:"长安区",cid:3},
+		    {id:4,cname:"梁子湖",cid:4},
+		    {id:5,cname:"华容区",cid:4},
+		    {id:6,cname:"葛店",cid:4},
+		     {id:1,cname:"荆州",cid:5},
+		    {id:2,cname:"公安县",cid:5},
+		    {id:3,cname:"洛龙区",cid:6},
+		    {id:4,cname:"涧西区",cid:6},
+		    {id:5,cname:"鼓楼区",cid:7},
+		    {id:6,cname:"龙亭区",cid:7},
+		    {id:1,cname:"海港区",cid:8},
+		    {id:2,cname:"山海关区",cid:8},
+		    {id:4,cname:"桥东区",cid:9},
+		    {id:5,cname:"桥西区",cid:9}
+		]
+	//初始 无条件将省份信息放置在第一个下拉列表
+		$.each(provice,function(index,val){
+			//创建 option
+			
+			//es6 拼串
+		   	var ops = `<option value="${val.pid}"> ${val.pname}</option>`    	
+			// var ops = $("<option value='"+val.pid+"'>"+val,pname+"</option>")
+			console.log(ops)
+			$("#pro").append(ops)
+		});
+
+		// 选择省份
+		 $("#pro").change(function(){
+		 	//往市select 追加option
+		 	var pid = $(this).val();
+
+		 	//将数组过滤
+		 	var city = cities.filter(function(obj){
+		 		//console.log(obj)
+		 		if(pid == obj.pid){
+		 			return true;
+		 		}
+		 	})
+		
+
+		// console.log(city)
+		
+		$(".city").remove(); //先清除市
+		$(".con").remove();
+		$.each(city,function(index,val){
+
+		//es6 拼串
+		var ops = `<option value="${val.cid}" class="city">${val.cname}</option>`;
+
+
+			
+			$("#city").append(ops)
+		})
+		// alert($(this).val())
+	 })
+
+		 //选择市
+		
+		$("#city").change(function(){
+
+			var cid = $(this).val();
+			//过滤市对应区县
+			//
+			var countrys = country.filter(function(item){
+				if(item.cid == cid){
+					return true;
+				}
+
+			})
+
+			//console.log(countrys)
+			
+			$(".country").remove();
+			$.each(countrys,function(k,v){
+				var ops = $("<option class='con' value='"+v.id+"'>"+v.cname+"</option>")
+
+				$("#country").append(ops)
+			})
+		})
+
+</script>
+</html>
