@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件触发练习</title>
+</head>
+<body>
+	<p id="b2">成人教育</p>
+	<button id="btn1">放大</button>
+	<button id="btn2">缩小</button>
+</body>
+<script>
+   var b2 = document.getElementById("b2");
+   var btn1 = document.getElementById("btn1");
+   var i =16;
+   btn1.onclick = function(){
+   	     // 两个像素的无限递增
+   	    i +=2;   
+ b2.style.fontSize = i + 2 + "px";
+   }
+ btn2.onclick = function(){
+   	     // 两个像素的无限递减
+   	    i -=2;   
+ b2.style.fontSize = i - 2 + "px";
+   }
+</script>
+</html>

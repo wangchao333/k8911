@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<form >
+<select name="pro">
+	<option>请选择省份</option>
+</select>
+<select name="city" disabled>
+	<option>请选择城市</option>
+</select>
+<select name="country" disabled>
+	<option>请选择区县</option>
+</select>
+</form>	
+</body>
+<script>
+var address = new Array();
+var form = document.forms[0];
+    address[0] = ["湖北省","湖南省","河南省"];
+	address["0_1"] = ["武汉","鄂州","黄冈"];
+	address["0_2"] = ["长沙","湘潭","怀化"];
+	address["0_3"] = ["郑州","洛阳","商丘"];
+	address["0_1_1"] = ["武昌区","青山区","洪山区","汉阳区"];
+	address["0_1_2"] = ["梁子湖区","华容区","鄂城区","葛店经济开发区"];
+	address["0_1_3"] = ["黄州区","武穴市","红安县","麻城市"];
+
+	address["0_2_1"] = ["长沙县","青山区","洪山区","汉阳区"];
+	address["0_2_2"] = ["湘潭县","岳爢区","abb","add"];
+	address["0_2_3"] = ["怀州区","add","abb","acc"];
+
+	address["0_3_1"] = ["中牟县","新郑区","中原区","汉阳区"];
+	address["0_3_2"] = ["洛阳县","管城区","abb","add"];
+	address["0_3_3"] = ["民权县","睢县","南陵县","无为县"];
+     var proNum;
+	var cityNum;
+   for(var i = 0;i < address[0].length;i++){
+   	var opt = document.createElement("option");
+   	opt.innerHTML = address[0][i];   
+   	form.pro.appendChild(opt);
+   }
+     // 第二步选择城市
+   form.pro.onchange = function(){
+   	if(form.pro.selectedIndex != 0){
+   		form.city.innerHTML="<option>请选择城市</option>";
+            form.country.innerHTML="<option>请选择区县</option>";
+   		form.city.disabled = false;
+   		proNum = form.pro.selectedIndex;
+   	for(var i = 0;i < address["0_" + proNum].length;i++){
+   		var opt = document.createElement("option");
+   		opt.innerHTML = address["0_"+proNum][i];
+   		form.city.appendChild(opt);
+   	}
+	}else{
+   		form.city.disabled = true;
+      form.country.disabled = true;
+      form.city.innerHTML="<option>请选择城市</option>";
+      form.country.innerHTML="<option>请选择区县</option>";
+
+   	}
+   
+   	}
+   // 第三步选择区县
+    form.city.onchange = function(){
+   	if(form.city.selectedIndex != 0){
+     form.country.innerHTML="<option>请选择区县</option>";
+     form.country.disabled = false;
+   			proNum = form.pro.selectedIndex;
+   			cityNum = form.city.selectedIndex;
+   			for(var i = 0;i < address["0_" +proNum +"_" +cityNum ].length;i++){
+   	var opt = document.createElement("option");
+    		opt.innerHTML = address["0_"+proNum+"_"+cityNum][i];
+    		form.country.appendChild(opt);
+    	}
+
+   	}else{
+    		form.country.disabled = true;
+        form.city.innerHTML="<option>请选择城市</option>";
+      form.country.innerHTML="<option>请选择区县</option>";
+  	}
+   }
+
+</script>
+</html>

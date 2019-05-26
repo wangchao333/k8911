@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表格动态添加</title>
+	<script src="../jquery3.min.js"></script>
+</head>
+<body>
+     <table border="1" cellspacing="0" width="500" >
+	<tr id="first">
+		<th>序号</th>
+		<th>性名</th>
+		<th>电话</th>
+		<th>操作</th>
+	</tr>
+	</table>
+</body>
+<script type="text/javascript">
+  var arr = [
+     [1,"张三","131xxxxxx"],
+      [2,"李斯","131xxxxxx"],
+       [3,"王五","131xxxxxx"],
+        [4,"张三","131xxxxxx"],
+       [5,"张三","131xxxxxx"],
+       ]   
+     // 创建节点 tr
+    document.createElement("tr");
+    var ftr = $("#first");
+       // 在a标签href里阻止默认行为  让数组遍历
+    $.each(arr,function(k,v){
+    	var tr = $("<tr class='tr"+k+"'><td>"+v[0]+"</td><td>"+v[1]+"</td><td>"+v[2]+"</td><td><a onclick='del("+k+")' href='javascript:'>删除</a></td></tr>");     
+    	   
+    	 // 追加子节点
+    	 $("table").append(tr);
+     	 var tr2 = $("<tr><td></td><td></td><td></td><td></td></tr>") 
+     })
+    // 点击删除按钮
+    function del(id){
+       $(".tr"+ id).remove();
+    }
+</script>
+</html>

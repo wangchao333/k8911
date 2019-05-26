@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	
+	<script type="text/javascript">
+		
+		 // 设置 带生命周期的cookie
+		 
+		  // 设置声明周期
+		    
+		    var date = new Date();
+               
+              // js  1970 /1/1    毫秒 
+		     var timestamp = date.getTime();
+		 
+		      // 过期时间
+		     var offsetTime = timestamp+30*1000;
+		     
+		     // 设置 过期时间
+		     
+		     date.setTime(offsetTime);
+		     
+		     // 存储cookie 
+		     
+		     document.cookie = "memeda=xxx....;expires="+date.toGMTString();
+		
+	</script>
+</html>
