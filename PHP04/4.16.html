@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../jquery3.min.js"></script>
+</head>
+<body>
+	<form id="frm">
+			
+			 用户名：<input type="text" name="user" onchange="checkUser()"/> <span id="msg"></span><br>
+			 密码： <input type="password" name="pwd" id="pwd" value="" /><br>
+			 确认密码: <input type="password" name="checkPwd"  ><br>
+			 手机：<input type="text" name="tel" /><br>
+			 
+			邮箱 ：<input type="email"  name="eamil" /><br>
+			 
+			
+			<input type="button" id="btn" value="注册"/>
+		</form>
+</body>
+<script type="text/javascript">
+var patt = /^[A-z]\w{5,14}$/;
+			
+			var user = $("[name='user']").val();
+			
+			if(patt.test(user)){
+				
+				// 用户名 是否被占用
+				
+				$.post("4.13.php",{user},function(res){
+					
+					console.log(res)
+					if(res ==1){
+						$("#msg").html("<span style='color:green'>恭喜该用户名可以使用</span>")
+						
+					}else{
+						$("#msg").html("<span style='color:red'>该用户名已被注册</span>")
+					}
+					
+					
+				})
+				
+			}else{
+				$("[name='user']").css("border","2px solid red")
+					$("#msg").html("<span style='color:red'>用户名不合法!</span>")
+				$("[name='user']").focus();
+				
+				$("#btn").prop("disabled",true);
+			}
+			
+			//alert(111)
+		}
+		
+		$("[name='checkPwd']").change(function(){
+			
+			 var pwdpatt = /^\w{6,15}$/
+			var pwd = $("[name='pwd']").val()
+			  
+			   if(pwdpatt.test(pwd) && pwdpatt.test($(this).val())){
+			   	   
+			   	      if(pwd !=$(this).val()){
+			   	      	
+			   	      	 alert("两次密码不一致!!")
+			   	      	  $("[name='pwd']").val("")
+			   	      	   $("[name='pwd']").focus()
+			   	      	   
+			   	      }else{
+			   	      	$("#btn").prop("disabled",false);
+			   	      }
+			   	   
+			   }else{
+			   	  alert("密码获取确认密码格式有误！！")
+			   }
+			  
+			//alert(111)
+			
+			
+			
+		})
+		
+		
+		$("#btn").click(function(){
+			
+			   $.post("4.17.php",$("#frm").serialize(),function(res){
+			   	
+			   	     console.log(res);
+			   	     
+			   	     if(res ==1){
+			   	     	
+			   	     	alert("恭喜注册成功!")
+			   	     	
+			   	     	
+			   	     }else{
+			   	     	alert("注册失败!")
+			   	     }
+			   	
+			   }
+			   
+			   )
+			
+		})
+		
+
+</script>
+</html>

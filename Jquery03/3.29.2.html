@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery3.min.js"></script>
+	<style>
+	*{
+		padding: 0;
+		margin: 0;
+	}
+	.content{
+		width:800px;
+		/*height:410px;*/
+		/*border: 1px solid black;*/
+		overflow: hidden;
+		margin: 0 auto;
+		position: relative;
+		top:50%;
+	}
+	.warpper{
+         width:1640px;
+        
+       
+        }
+        
+        
+  img:hover{
+  	cursor: pointer;
+  }
+  .mark{
+  	position: absolute;
+  	z-index:999;
+  	width: 100%;
+  	height: 100%;
+  	left:0;
+  	top:0;
+  	background: rgba(0,0,0,.5);
+  	display: none;
+  }
+  .showimg{
+  	width:35%;
+  	height:80%;
+  	border: 1px solid red;
+  	background: white;
+  	position:absolute;
+   display:none;
+  	z-index: 1000;
+  	top:50%;
+  	left:50%;
+  	transform: translate(-50%,-50%);
+  	
+  }
+  .showimg .exit{
+  	width: 50px;
+  	height:50px;
+  	line-height: 50px;
+  	text-align: center;
+  	/*border: 1px solid red;*/
+  	color: gray;
+  	font-size:38px;
+  	cursor: pointer;
+  	position: absolute;
+   right: 0;
+  }
+  .showimg>img{
+  	width:85%;
+  	height:85%;
+  	margin: 7% 7%;
+  }
+	</style>
+</head>
+<body>
+<div class="content">
+<div class="warpper">
+	<img src="./1.jpg" alt="" width="200" height="200">
+	<img src="./2.jpg" alt="" width="200" height="200">
+	<img src="./3.jpg" alt="" width="200" height="200">
+	<img src="./4.jpg" alt="" width="200" height="200">
+
+
+	<img src="./1.jpg" alt="" width="200" height="200">
+	<img src="./2.jpg" alt="" width="200" height="200">
+	<img src="./3.jpg" alt="" width="200" height="200">
+	<img src="./4.jpg" alt="" width="200" height="200">
+	</div>
+</div>
+	<div class="mark">
+	</div>
+	<div class="showimg">
+	<div class="exit">
+	×
+	</div>
+	</div>
+</body>
+<script type="text/javascript">
+           
+	 var offset = 50;
+	 var t;
+ 		function move(){
+	  	  	        if(offset>=820){
+	  	  	    	offset = 50
+	 		 }else{
+	  	  	  offset+= 10;
+	  	  	            }
+              $(".warpper").css("margin-left","-"+offset+"px")
+	  	  	
+	  	  }
+	  	
+	  	  t= setInterval(move,100)
+	  	  
+	  	    $("img").hover(function(){
+	  	    	   // 当鼠标悬浮上图片的时候改变图片透明度
+	  	        $("img").css("opacity","1")
+	  	    	$(this).css("opacity","0.7")
+	  	    	clearInterval(t)
+	  	    },function(){
+	  	    	
+	  	    	 $(this).css("opacity","1")
+	  	    	
+	  	    	 t= setInterval(move,100)
+	  	    	
+	  	    })
+	  	    
+	  	    
+	  	    // 点击图片 实现预览
+	  	    
+	  	         // 点击当前图片的时候触发事件
+	  	      $("img").click(function(){
+	  	      	      // 获取当前要点击的图片
+	  	      	  var index =  $(this).index()
+	  	      	    // 当点击该图片的时候让预览图显示出来
+	  	      	$(".mark").css("display","block")
+	  	      	     // 在预览框里引入图片路径
+	  	      	var path = $("img")[index].src;
+	  	      	      
+	  	      	var img = $("<img class='image'src='"+path+"'>")
+	  	        $(".image").remove()
+	  	      	$(".showimg").append(img)
+	  	      	$(".showimg").css("display","block")
+  
+	  	      })
+	  	   
+  // 点击清除时触发事件
+   $(".exit").click(function(){
+  // 	// 让预览图隐藏
+  	$(".mark").css("display","none")
+  	$(".showimg").css("display","none")
+      	
+  })
+</script>
+</html>

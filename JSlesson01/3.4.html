@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	         // 第一题
+ 
+   
+     
+            <!--  第三题 -->
+           <!--  var xingBie1 = prompt("请输入你的性别");
+           
+            if(xingBie1 == "男") {
+             	var  chengji = prompt("请输入你的比赛成绩");
+             	if(chengji <= 10){
+               	document.write("进入男子决赛组");
+             	}
+            }
+            if(xingBie1 == "女" ){
+            		var  chengji = prompt("请输入你的比赛成绩");
+             	if(chengji <= 11){
+                     document.write("进入女子决赛组");
+             	}
+             }
+            if(xingBie1 !== "男"&& xingBie1 ! == "女"){
+            	   alert("你输入的性别有误");
+            } -->
+             <!--  第四题 -->
+      <!--   var guke =  prompt("你是会员吗");
+      
+          if(guke== "不是"){
+              var enter = prompt("你的消费金额");
+         
+          if(enter >= 100){
+          	document.write("普通顾客购物满100元打9折");
+          }
+      }
+          if(guke== "是"){
+          	var enter = prompt("你的消费金额");
+         
+          if (enter >= 200 ) {
+        	document.write("会员购物满200元打7.5折");
+          }
+      }  --> 
+     <!--    // 第二题
+        var num  = prompt("输入一个四位数抽奖号码"); 
+        var num1 = parseInt(num  / 1000) %  10;
+         var num2 = parseInt(num  / 100) %  10;
+         var num3 = parseInt(num  / 10) %  10;
+           var num4 = num % 10;
+        
+        if(num4 % 2==1){
+           document.write("你没能抽中奖品");
+         }
+
+         if(num4 % 2 ==0 && num1+num2+num3+num4>20 && num1+num2+num3+num4==22){
+             document.write("恭喜你获得了一等奖，奖品是钢丝");
+          } 
+        if(num4 % 2 ==0 && num1+num2+num3+num4>20){
+               document.write("运气不错，您中了二等奖，奖品是星之守护者。");
+           }
+        if(num4 % 2==0 && num1+num2+num3+num4<20){
+             document.write("运气不错，您中了三等奖，奖品是小红帽。");
+           }  
+              -->
+            <!--   第五题 -->
+   
+            
+</body>
+<script>
+  // var boy =(wight-80)*0.7;
+  //            var girl=(wight-70)*0.6;
+             
+  //             var  six = prompt("请输入你的性别");
+  //             if(six == "男" ){
+  //               var wight = prompt("请输入你的身高");
+                
+  //            var hight  = prompt("请输入你的体重");
+  //            if(boy <= hight &&  hight <= boy*1.0 ){
+  //             alert("体重正常");
+  //               }
+  //             }if(boy > hight&&  hight<=boy * 1.1){
+  //               alert("体重过重");
+  //             }if(boy< hight&&  hight>=boy * 0.7) {
+  //               alert("体重过轻");
+  //             }
+  //             if(boy * 1.2 > hight){
+  //               alert("肥胖，超出");
+  //             }if(boy * 0.7 < hight){
+  //               alert("营养不良");
+  //             }
+  // if(six == "女" ){
+  //               var wight = prompt("请输入你的身高");
+                
+  //            var hight  = prompt("请输入你的体重");
+  //            if(girl <= girl * 1.0 ){
+  //             alert("体重正常");
+  //               }
+  //             }if(girl<= girl * 1.1){
+  //               alert("体重过重");
+  //             }if( girl > hight&&  hight>= girl * 0.7) {
+  //               alert("体重过轻");
+  //             }
+  //             if(girl*1.2 > hight){
+  //               alert("肥胖");
+  //             }if(girl * 0.7 < hight){
+  //               alert("营养不良");
+  //             }
+
+    var num = prompt("请输入一个数")
+    var sum;
+    var cum = round(sum);
+    if(num % 10 == 0){
+      sum = num/10;
+       document.write("这个本子需要"+(cum)+"才能写下")
+    }else if(num % 10>10){
+         document.write("这个本子需要"+(sum)+"页才能写下")
+    }
+</script>
+</html>
