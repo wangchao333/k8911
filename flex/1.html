@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../mui.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+   
+    <style>
+  .mui-table-view-cell{
+        height: 80px;
+  }
+ .mui-card-header{
+     background-color: rgb(248,248,248);
+ }
+ .mui-media-body{
+     font-size: 17px;
+ }
+ .glyphicon{
+     position: absolute;
+     right:24px;
+     top:14px;
+     color:rgb(136,136,136);
+ }
+ .red{
+      font-size: 13px;
+     color: red;
+ }
+.glyphicon-home{
+    position: absolute;
+    left: 20%;
+}
+.glyphicon-list{
+    position: absolute;
+    left: 50%;
+}
+.glyphicon-user{
+    position: absolute;
+    left: 80%;
+}
+    </style>
+</head>
+<body>
+    <div class="mui-card">
+        <!--页眉，放置标题-->
+        <div class="mui-card-header">
+            <div class="mui-media-body">
+             开饭啦
+                    <span class="glyphicon glyphicon-align-justify"></span>
+            </div>
+        </div>
+        <!--内容区-->
+        <div class="mui-card-content">
+                <ul class="mui-table-view">
+                        <li class="mui-table-view-cell mui-media">
+                            <a href="javascript:;">
+                                <img class="mui-media-object mui-pull-left" src="./images/p2679.jpg">
+                                <div class="mui-media-body">
+                                   【 香甜可口桂花糕】
+                                    <p class='mui-ellipsis'>主要食料:奶油、糖桂花、山药、炼乳</p>
+                                    <span class="red">￥16.5</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="mui-table-view-cell mui-media">
+                            <a href="javascript:;">
+                                <img class="mui-media-object mui-pull-left" src="./images/p0281.jpg">
+                                <div class="mui-media-body">
+                                 【酸甜开胃虾】
+                                    <p class='mui-ellipsis'>主要食料:醋、白糖、虾仁、酱油、香葱</p>
+                                    <span class="red">￥36.00</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="mui-table-view-cell mui-media">
+                            <a href="javascript:;">
+                                <img class="mui-media-object mui-pull-left" src="./images/p6611-l.jpg">
+                                <div class="mui-media-body">
+                                 【小面包】
+                                    <p class='mui-ellipsis'>主要食料:小苏打、面粉、白糖、奶油、柠檬酸</p>
+                                    <span class="red">￥7.00</span>
+                                </div>
+                            </a>
+                            
+                        </li>
+                        <br>
+                        <button type="button" class="mui-btn mui-btn-success " style="width:100%">加载更多</button>
+                    </ul>
+
+        </div>
+        <br>
+        <!--页脚，放置补充信息或支持的操作-->
+        <div class="mui-card-footer">
+                
+		 <span class="glyphicon glyphicon-home">
+                        </span>
+                    <span class="glyphicon glyphicon-list">
+                          </span>
+                        <span class="glyphicon glyphicon-user">
+                              </span>  
+       </div>
+</body>
+</html>
